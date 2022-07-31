@@ -8,49 +8,50 @@
     <section>
 
         <div class="row p-4" style="margin-right: 0 !important;">
-        <div class="card p-3">
-            <div class="table-responsive">
-                <table id="myTable" class="table align-items-center mb-0" width="100%">
-                    <thead>
-                    <tr>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Nome</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Viagem</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
-                            Berço
-                        </th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
-                            Previsão de Atracação
-                        </th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
-                            Taxas Anuentes?
-                        </th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
-                            Certificados?
-                        </th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
-                            Prático?
-                        </th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
-                            Status
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="lstProgramados : ${lstProgramados}">
-                        <td th:text="${lstProgramados.txNavio}"></td>
-                        <td th:text="${lstProgramados.txRefViagem}"></td>
-                        <td th:text="${lstProgramados.txBerco}"></td>
-                        <td th:text="${{lstProgramados.dtPrevInicio}}"></td>
-                        <td th:text="${lstProgramados.ckAnuencia eq 1 ? 'Sim' : 'Não'}"></td>
-                        <td th:text="${lstProgramados.ckCertificado eq 1 ? 'Sim' : 'Não'}"></td>
-                        <td th:text="${lstProgramados.txPratico}"></td>
-                        <td><span th:class="${lstProgramados.txStatusClass}" th:text="${lstProgramados.txStatus}"></span></td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="card p-3">
+                <div class="table-responsive">
+                    <table id="myTable" class="table align-items-center mb-0" width="100%">
+                        <thead>
+                        <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Nome</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Viagem</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
+                                Berço
+                            </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
+                                Previsão de Atracação
+                            </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
+                                Taxas Anuentes?
+                            </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
+                                Certificados?
+                            </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
+                                Prático?
+                            </th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">
+                                Status
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="lstProgramados : ${lstProgramados}">
+                            <td th:text="${lstProgramados.txNavio}"></td>
+                            <td th:text="${lstProgramados.txRefViagem}"></td>
+                            <td th:text="${lstProgramados.txBerco}"></td>
+                            <td th:text="${{lstProgramados.dtPrevInicio}}"></td>
+                            <td th:text="${lstProgramados.ckAnuencia eq 1 ? 'Sim' : 'Não'}"></td>
+                            <td th:text="${lstProgramados.ckCertificado eq 1 ? 'Sim' : 'Não'}"></td>
+                            <td th:text="${lstProgramados.txPratico}"></td>
+                            <td><span th:class="${lstProgramados.txStatusClass}"
+                                      th:text="${lstProgramados.txStatus}"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
 
+                </div>
             </div>
-        </div>
         </div>
 
         <div class="row p-3" style="margin-right: 0 !important;">
@@ -73,14 +74,15 @@
                                 <div class="col-6 py-3 ps-0">
                                     <div class="d-flex mb-2">
                                         <div class="icon icon-shape icon-xxs shadow border-radius-smtext-center me-2 d-flex align-items-center justify-content-center"
-                                        style="background-image: linear-gradient(310deg, #CA5D28 0%, #FFB300 100%)">
+                                             style="background-image: linear-gradient(310deg, #CA5D28 0%, #FFB300 100%)">
                                             <i class="fas fa-sun" style="font-size: 14px;padding-top: 10px;"></i>
                                         </div>
                                         <p class="text-xs mt-1 mb-0 font-weight-bold">Condições Climáticas</p>
                                     </div>
                                     <h5 class="font-weight-bolder" th:text="${tbClima.txCondicao}"></h5>
                                     <div class="progress w-100">
-                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="col-6 py-3 ps-0">
@@ -93,33 +95,37 @@
                                     </div>
                                     <h5 class="font-weight-bolder" th:text="${tbClimaFuturo.txCondicao}"></h5>
                                     <div class="progress w-100">
-                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="col-6 py-3 ps-0">
                                     <div class="d-flex mb-2">
                                         <div class="icon icon-shape icon-xxs shadow border-radius-sm text-center me-2 d-flex align-items-center justify-content-center"
-                                        style="background-image:linear-gradient(310deg, #2841CA 0%, #0093FF 100%)">
-                                            <i class="fas fa-location-arrow" style="font-size: 14px;padding-top: 10px;"></i>
+                                             style="background-image:linear-gradient(310deg, #2841CA 0%, #0093FF 100%)">
+                                            <i class="fas fa-location-arrow"
+                                               style="font-size: 14px;padding-top: 10px;"></i>
                                         </div>
                                         <p class="text-xs mt-1 mb-0 font-weight-bold">Direção do Vento</p>
                                     </div>
                                     <h5 class="font-weight-bolder" th:text="${tbClima.txDirecaoVento}"></h5>
                                     <div class="progress w-100" style="margin-top: 35px !important">
-                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="col-6 py-3 ps-0">
                                     <div class="d-flex mb-2">
                                         <div class="icon icon-shape icon-xxs shadow border-radius-sm text-center me-2 d-flex align-items-center justify-content-center"
-                                        style="background-image: linear-gradient(310deg, #838383 0%, #CECECE 100%)">
+                                             style="background-image: linear-gradient(310deg, #838383 0%, #CECECE 100%)">
                                             <i class="fas fa-wind" style="font-size: 14px;padding-top: 10px;"></i>
                                         </div>
                                         <p class="text-xs mt-1 mb-0 font-weight-bold">Velocidade de Vento</p>
                                     </div>
                                     <h5 class="font-weight-bolder" th:text="${tbClima.vlVelocidadeVento}"></h5>
                                     <div class="progress w-100" style="margin-top: 36px !important">
-                                        <div class="progress-bar bg-dark w-100" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-dark w-100" role="progressbar" aria-valuenow="60"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
