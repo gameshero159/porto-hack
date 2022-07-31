@@ -28,14 +28,15 @@ public class WebConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, TbUsuarioService tbUsuarioService) throws Exception {
         return httpSecurity.
                 authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/login", "/registro").anonymous()
-                .antMatchers(HttpMethod.POST, "/login", "/registro").anonymous()
+                .antMatchers(HttpMethod.GET, "/login", "/registro").permitAll()
+                .antMatchers(HttpMethod.POST, "/login", "/registro").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .userDetailsService(tbUsuarioService)
                 .formLogin()
                 .loginPage("/login")
+                .loginProcessingUrl("/login")
                 .successForwardUrl("/login?sucesso=sucesso")
                 .and()
                 .csrf()
