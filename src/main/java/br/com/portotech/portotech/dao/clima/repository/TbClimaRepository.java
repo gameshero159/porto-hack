@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface TbClimaRepository extends JpaRepository<TbClimaObj, Integer> {
-    List<TbClimaObj> findByDtConsultaBetween(Date dtInicial, Date dtFinal);
+    TbClimaObj findFirstByDtConsultaBetweenOrderByDtConsultaDesc(Date dtInicial, Date dtFinal);
 }
