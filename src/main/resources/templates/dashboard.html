@@ -66,29 +66,14 @@
             </div>
 
             <div class="col-sm-6">
-                <!--<div class="card">
-                    &lt;!&ndash;<div class="card-header" style="background-color: #224D91!important"></div>&ndash;&gt;
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <i class="fa-solid fa-windsock"></i>
-                            </div>
-                            <div class="col-sm-6">
-                                <p><span th:text="|Condição Climática: ${tbClima.txCondicao}|"></span></p>
-                                <p><span th:text="|Direção do Vento: ${tbClima.txDirecaoVento}|"></span></p>
-                                <p><span th:text="|Velocidade do Vento: ${tbClima.vlVelocidadeVento}|"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
-
                 <div class="card z-index-2">
-                    <div class="card-body p-3">
+                    <div class="card-body pt-5 pb-5">
                         <div class="container border-radius-lg">
                             <div class="row">
-                                <div class="col-4 py-3 ps-0">
+                                <div class="col-6 py-3 ps-0">
                                     <div class="d-flex mb-2">
-                                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="icon icon-shape icon-xxs shadow border-radius-smtext-center me-2 d-flex align-items-center justify-content-center"
+                                        style="background-image: linear-gradient(310deg, #CA5D28 0%, #FFB300 100%)">
                                             <i class="fas fa-sun" style="font-size: 14px;padding-top: 10px;"></i>
                                         </div>
                                         <p class="text-xs mt-1 mb-0 font-weight-bold">Condições Climáticas</p>
@@ -98,9 +83,23 @@
                                         <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
-                                <div class="col-4 py-3 ps-0">
+                                <div class="col-6 py-3 ps-0">
                                     <div class="d-flex mb-2">
-                                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="icon icon-shape icon-xxs shadow border-radius-smtext-center me-2 d-flex align-items-center justify-content-center"
+                                             style="background-image: linear-gradient(310deg, #CA5D28 0%, #FFB300 100%)">
+                                            <i class="fas fa-sun" style="font-size: 14px;padding-top: 10px;"></i>
+                                        </div>
+                                        <p class="text-xs mt-1 mb-0 font-weight-bold">Previsão Climática</p>
+                                    </div>
+                                    <h5 class="font-weight-bolder" th:text="${tbClima.txCondicao}"></h5>
+                                    <div class="progress w-100">
+                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-6 py-3 ps-0">
+                                    <div class="d-flex mb-2">
+                                        <div class="icon icon-shape icon-xxs shadow border-radius-sm text-center me-2 d-flex align-items-center justify-content-center"
+                                        style="background-image:linear-gradient(310deg, #2841CA 0%, #0093FF 100%)">
                                             <i class="fas fa-location-arrow" style="font-size: 14px;padding-top: 10px;"></i>
                                         </div>
                                         <p class="text-xs mt-1 mb-0 font-weight-bold">Direção do Vento</p>
@@ -110,9 +109,10 @@
                                         <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
-                                <div class="col-4 py-3 ps-0">
+                                <div class="col-6 py-3 ps-0">
                                     <div class="d-flex mb-2">
-                                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="icon icon-shape icon-xxs shadow border-radius-sm text-center me-2 d-flex align-items-center justify-content-center"
+                                        style="background-image: linear-gradient(310deg, #838383 0%, #CECECE 100%)">
                                             <i class="fas fa-wind" style="font-size: 14px;padding-top: 10px;"></i>
                                         </div>
                                         <p class="text-xs mt-1 mb-0 font-weight-bold">Velocidade de Vento</p>
