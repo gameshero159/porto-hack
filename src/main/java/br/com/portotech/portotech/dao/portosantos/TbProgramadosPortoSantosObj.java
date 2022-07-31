@@ -1,5 +1,7 @@
 package br.com.portotech.portotech.dao.portosantos;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -7,6 +9,8 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "tb_programados_porto_santos", schema = "portotech", catalog = "")
 public class TbProgramadosPortoSantosObj {
@@ -16,7 +20,7 @@ public class TbProgramadosPortoSantosObj {
     @Column(name = "cd_programados_porto_santos", nullable = false)
     private int cdProgramadosPortoSantos;
     
-    @Column(name = "dt_prev_inicio", nullable = true)
+    @Column(name = "dt_prev_inicio")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private Date dtPrevInicio;
     
