@@ -80,8 +80,31 @@
         <script th:inline="javascript">
             /*<[[CDATA*/
             $(document).ready(function () {
-                    $('#myTable').DataTable();
+                    $('#myTable').DataTable({
+                        language: {
+                            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json'
+                        }
+                    });
 
+                    $(document).keypress(function (event) {
+                        if (event.which == 112) {
+                            Swal.fire({
+                                title: "Aviso",
+                                text: "Previsão de atracação se aproximando, e taxas de Anuentes não estão pagas",
+                                icon: "warning",
+                                confirmButtonText: "Fechar"
+                            });
+                        }
+
+                        if (event.which == 108) {
+                            Swal.fire({
+                                title: "Aviso",
+                                text: "A tabua da maré excedeu o limite do aceitável",
+                                icon: "warning",
+                                confirmButtonText: "Fechar"
+                            });
+                        }
+                    });
 
                     const ctx = document.getElementById('line-chart').getContext('2d');
 
