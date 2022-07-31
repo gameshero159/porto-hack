@@ -68,9 +68,16 @@
                 <div class="card">
                     <!--<div class="card-header" style="background-color: #224D91!important"></div>-->
                     <div class="card-body">
-                        <span th:text="|Condição Climática: ${tbClima.txCondicao}|"></span>
-                        <span th:text="|Direção do Vento: ${tbClima.txDirecaoVento}|"></span>
-                        <span th:text="|Velocidade do Vento: ${tbClima.vlVelocidadeVento}|"></span>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <i class="fa-solid fa-windsock"></i>
+                            </div>
+                            <div class="col-sm-6">
+                                <p><span th:text="|Condição Climática: ${tbClima.txCondicao}|"></span></p>
+                                <p><span th:text="|Direção do Vento: ${tbClima.txDirecaoVento}|"></span></p>
+                                <p><span th:text="|Velocidade do Vento: ${tbClima.vlVelocidadeVento}|"></span></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
