@@ -66,8 +66,8 @@
             </div>
 
             <div class="col-sm-6">
-                <div class="card">
-                    <!--<div class="card-header" style="background-color: #224D91!important"></div>-->
+                <!--<div class="card">
+                    &lt;!&ndash;<div class="card-header" style="background-color: #224D91!important"></div>&ndash;&gt;
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-6">
@@ -80,7 +80,53 @@
                             </div>
                         </div>
                     </div>
+                </div>-->
+
+                <div class="card z-index-2">
+                    <div class="card-body p-3">
+                        <div class="container border-radius-lg">
+                            <div class="row">
+                                <div class="col-4 py-3 ps-0">
+                                    <div class="d-flex mb-2">
+                                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-sun" style="font-size: 14px;padding-top: 10px;"></i>
+                                        </div>
+                                        <p class="text-xs mt-1 mb-0 font-weight-bold">Condições Climáticas</p>
+                                    </div>
+                                    <h5 class="font-weight-bolder" th:text="${tbClima.txCondicao}"></h5>
+                                    <div class="progress w-100">
+                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4 py-3 ps-0">
+                                    <div class="d-flex mb-2">
+                                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-location-arrow" style="font-size: 14px;padding-top: 10px;"></i>
+                                        </div>
+                                        <p class="text-xs mt-1 mb-0 font-weight-bold">Direção do Vento</p>
+                                    </div>
+                                    <h5 class="font-weight-bolder" th:text="${tbClima.txDirecaoVento}"></h5>
+                                    <div class="progress w-100" style="margin-top: 35px !important">
+                                        <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-4 py-3 ps-0">
+                                    <div class="d-flex mb-2">
+                                        <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-wind" style="font-size: 14px;padding-top: 10px;"></i>
+                                        </div>
+                                        <p class="text-xs mt-1 mb-0 font-weight-bold">Velocidade de Vento</p>
+                                    </div>
+                                    <h5 class="font-weight-bolder" th:text="${tbClima.vlVelocidadeVento}"></h5>
+                                    <div class="progress w-100" style="margin-top: 36px !important">
+                                        <div class="progress-bar bg-dark w-100" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
         </div>
