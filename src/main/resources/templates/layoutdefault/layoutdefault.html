@@ -66,6 +66,28 @@
 
 </main>
 
+<script>
+    $(document).ready(function () {
+        $(document).keypress(function (event) {
+            if (event.which == 112) {
+                Swal.fire({
+                    title: "Aviso",
+                    message: "Previsão de atracação se aproximando, e taxas de Anuentes não estão pagas",
+                    icon: "warning",
+                    confirmButtonText: "Fechar"
+                });
+            }
 
+            if (event.which == 108) {
+                Swal.fire({
+                    title: "Aviso",
+                    message: "Tabua da Maré execeu o limite do aceitábel",
+                    icon: "warning",
+                    confirmButtonText: "Fechar"
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>
