@@ -81,8 +81,9 @@
             /*<[[CDATA*/
             $(document).ready(function () {
                     $('#myTable').DataTable({
+                        order: [3, 'desc'],
                         language: {
-                            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json'
+                            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json',
                         }
                     });
 
@@ -126,7 +127,7 @@
                         data: {
                             labels: labels,
                             datasets: [{
-                                label: "Variação da Maré",
+                                label: "Tábua da Maré",
                                 tension: 0.4,
                                 pointRadius: 2,
                                 pointBackgroundColor: "#3A416F",
@@ -157,7 +158,7 @@
                                     ticks: {
                                         display: true,
                                         padding: 10,
-                                        color: '#b2b9bf',
+                                        color: '#013d70',
                                         font: {
                                             size: 11,
                                             family: "Open Sans",
@@ -176,7 +177,7 @@
                                     },
                                     ticks: {
                                         display: true,
-                                        color: '#b2b9bf',
+                                        color: '#013d70',
                                         padding: 10,
                                         font: {
                                             size: 11,
