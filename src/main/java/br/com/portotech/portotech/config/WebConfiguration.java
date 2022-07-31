@@ -31,18 +31,18 @@ public class WebConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, TbUsuarioService tbUsuarioService) throws Exception {
-        return httpSecurity.
-                authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/assets/**","/login", "/registro").permitAll()
-                .antMatchers(HttpMethod.POST, "/login", "/registro").permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
+        return httpSecurity
                 .userDetailsService(tbUsuarioService)
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
                 .successForwardUrl("/login?sucesso=sucesso")
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/assets/**","/login", "/registro").permitAll()
+                .antMatchers(HttpMethod.POST, "/login", "/registro").permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .logout()
                 .and()
