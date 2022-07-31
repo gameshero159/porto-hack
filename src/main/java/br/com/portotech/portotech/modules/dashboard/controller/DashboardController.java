@@ -2,11 +2,11 @@ package br.com.portotech.portotech.modules.dashboard.controller;
 
 import br.com.portotech.portotech.dao.portosantos.TbProgramadosPortoSantosObj;
 import br.com.portotech.portotech.dao.portosantos.repository.TbProgramadosPortoSantosRepository;
-import br.com.portotech.portotech.modules.programadosportosantos.service.TbProgramadosPortoSantosService;
+import br.com.portotech.portotech.dao.tabuamare.TbTabuaMareObj;
+import br.com.portotech.portotech.dao.tabuamare.repository.TbTabuaMareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -14,19 +14,22 @@ import java.util.List;
 @Controller
 public class DashboardController {
 
-    private final TbProgramadosPortoSantosService tbProgramadosPortoSantosService;
+    @Autowired
+    private TbProgramadosPortoSantosRepository tbProgramadosPortoSantosRepository;
 
-    DashboardController(TbProgramadosPortoSantosService tbProgramadosPortoSantosService) {
-        this.tbProgramadosPortoSantosService = tbProgramadosPortoSantosService;
-    }
+    @Autowired
+    private TbTabuaMareRepository tbTabuaMareRepository;
 
     @GetMapping("/dashboard")
     public ModelAndView show(){
         ModelAndView mv = new ModelAndView();
-        List<TbProgramadosPortoSantosObj> tbProgramadosPortoSantosObj = tbProgramadosPortoSantosService.listar();
+        List<TbProgramadosPortoSantosObj> tbProgramadosPortoSantosObj = tbProgramadosPortoSantosRepository.findAll();
+        List<TbTabuaMareObj> tbTabuaMareObj = tbTabuaMareRepository.findAll();
 
         mv.addObject("lstProgramados", tbProgramadosPortoSantosObj);
+        mv.addObject("tbTabuaMareObj", tbTabuaMareObj);
 
         return mv;
     }
+
 }
