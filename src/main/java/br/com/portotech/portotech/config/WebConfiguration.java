@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configurers.userdetails.DaoAuthenticationConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -30,24 +33,30 @@ public class WebConfiguration {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, TbUsuarioService tbUsuarioService) throws Exception {
+    public DaoAuthenticationProvider authenticationProvider(TbUsuarioService tbUsuarioService) {
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+        daoAuthenticationProvider.setUserDetailsService(userDetailsService(tbUsuarioService));
+        return daoAuthenticationProvider;
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-                .userDetailsService(tbUsuarioService)
                 .formLogin()
                 .loginPage("/login")
-                .permitAll()
-                .successForwardUrl("/login?sucesso=sucesso")
-                .and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/assets/**", "/registro").permitAll()
-                .antMatchers(HttpMethod.POST,  "/registro").permitAll()
-                .anyRequest()
-                .authenticated()
+                .defaultSuccessUrl("/dashboard", false)
                 .and()
                 .logout()
                 .and()
                 .csrf()
                 .disable()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/login", "/assets/**", "/registro").permitAll()
+                .antMatchers(HttpMethod.POST,  "/login", "/registro").permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
                 .build();
     }
 
