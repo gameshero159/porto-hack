@@ -5,14 +5,13 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.Objects;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_programados_porto_santos", schema = "portotech", catalog = "")
+@Table(name = "tb_programados_porto_santos", schema = "portotech")
 public class TbProgramadosPortoSantosObj {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -87,24 +86,26 @@ public class TbProgramadosPortoSantosObj {
             txPratico = "Praticagem não comunicada";
         }
 
+        LocalDate dataPrevisaoInicio = LocalDate.from(dtPrevInicio.toInstant());
+
         /* CASES STATUS */
-        if((dtPrevInicio.compareTo(new Date()) <= 0) && ((ckAnuencia != null && ckCertificado == null) || (ckAnuencia == null && ckCertificado != null))){
+        if(dataPrevisaoInicio.equals(LocalDate.now()) && ((ckAnuencia != null && ckCertificado == null) || (ckAnuencia == null && ckCertificado != null))){
             txStatus = "NÃO LIBERADO";
             txStatusClass = "status-1";
         }
-        else if((dtPrevInicio.compareTo(new Date()) <= 0) && (ckAnuencia != null && ckCertificado != null) && cdPratico == null) {
+        else if(dataPrevisaoInicio.equals(LocalDate.now()) && (ckAnuencia != null && ckCertificado != null) && cdPratico == null) {
             txStatus = "LIBERADO";
             txStatusClass = "status-2";
         }
-        else if((dtPrevInicio.compareTo(new Date()) <= 0) && cdPratico.equals(1)){
+        else if(dataPrevisaoInicio.equals(LocalDate.now()) && cdPratico.equals(1)){
             txStatus = "PRÁTICO CONFIRMADO";
             txStatusClass = "status-3";
         }
-        else if((dtPrevInicio.compareTo(new Date()) <= 0) && cdPratico.equals(2)){
+        else if(dataPrevisaoInicio.equals(LocalDate.now()) && cdPratico.equals(2)){
             txStatus = "ATRACAÇÃO";
             txStatusClass = "status-4";
         }
-        else if((dtPrevInicio.compareTo(new Date()) <= 0) && cdPratico.equals(3)){
+        else if(dataPrevisaoInicio.equals(LocalDate.now()) && cdPratico.equals(3)){
             txStatus = "ATRACADO";
             txStatusClass = "status-5";
         }
