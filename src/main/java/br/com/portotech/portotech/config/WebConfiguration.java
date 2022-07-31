@@ -30,12 +30,11 @@ public class WebConfiguration {
     }
 
     @Bean
-    @Order(100)
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, TbUsuarioService tbUsuarioService) throws Exception {
         return httpSecurity.
                 authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/login", "/registro").permitAll()
-                .antMatchers(HttpMethod.POST, "/registro").permitAll()
+                .antMatchers(HttpMethod.GET, "/assets/**","/login", "/registro").permitAll()
+                .antMatchers(HttpMethod.POST, "/login", "/registro").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -44,6 +43,8 @@ public class WebConfiguration {
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
                 .successForwardUrl("/login?sucesso=sucesso")
+                .and()
+                .logout()
                 .and()
                 .csrf()
                 .disable()
