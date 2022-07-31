@@ -127,29 +127,52 @@ h6,
   color: var(--bs-heading-color);
 }
 
+.card {
+  border-radius: 12px !important;
+}
+
+.progress{
+  height: 0.3rem !important;
+}
+
 .status-1{
   background-color: #fc9797 !important;
   color: #bd0000 !important;
+  padding: 6px !important;
+  border-radius: 12px !important;
+  font-size: 10px;
 }
 
 .status-2{
   background-color: #fcbe97 !important;
   color: #e06300 !important;
+  padding: 6px !important;
+  border-radius: 12px !important;
+  font-size: 10px;
 }
 
 .status-3{
   background-color: #a4fc97 !important;
   color: #30b60b !important;
+  padding: 6px !important;
+  border-radius: 12px !important;
+  font-size: 10px;
 }
 
 .status-4{
   background-color: #97d9fc !important;
   color: #0025e0 !important;
+  padding: 6px !important;
+  border-radius: 12px !important;
+  font-size: 10px;
 }
 
 .status-5{
   background-color: #d9d9d9 !important;
   color: #606060 !important;
+  padding: 6px !important;
+  border-radius: 12px !important;
+  font-size: 10px;
 }
 
 h1,
