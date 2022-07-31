@@ -25,7 +25,7 @@ public class TbClimaObj {
     @Column(name = "tx_pais")
     private String txPais;
 
-    @Column(name = "vl_tempatura")
+    @Column(name = "vl_temperatura")
     private Double vlTemperatura;
 
     @Column(name = "tx_direcao_vento")
