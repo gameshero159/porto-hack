@@ -44,7 +44,7 @@
                         <td th:text="${lstProgramados.ckAnuencia eq 1 ? 'Sim' : 'Não'}"></td>
                         <td th:text="${lstProgramados.ckCertificado eq 1 ? 'Sim' : 'Não'}"></td>
                         <td th:text="${lstProgramados.txPratico}"></td>
-                        <td><span th:class="${txStatusClass}" th:text="${txStatus}">Default</span></td>
+                        <td><span th:class="${lstProgramados.txStatusClass}" th:text="${lstProgramados.txStatus}"></span></td>
                     </tr>
                     </tbody>
                 </table>

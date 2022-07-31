@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -88,36 +87,32 @@ public class TbProgramadosPortoSantosObj {
         //endregion
 
         //region Verificação do Status do Navio
-        LocalDate dataPrevisaoInicio = LocalDate.from(dtPrevInicio.toInstant());
-
-        if (dataPrevisaoInicio.equals(LocalDate.now())
-                && ((ckAnuencia != null && ckCertificado == null)
-                || (ckAnuencia == null && ckCertificado != null))) { // Não Liberado
+        if (ckAnuencia == null
+                || ckCertificado == null
+                || ckAnuencia.equals(2)
+                || ckCertificado.equals(2)) { // Não Liberado
 
             txStatus = "NÃO LIBERADO";
             txStatusClass = "status-1";
 
-        } else if (dataPrevisaoInicio.equals(LocalDate.now())
-                && (ckAnuencia != null && ckCertificado != null)
+        } else if (ckAnuencia.equals(1)
+                && ckCertificado.equals(1)
                 && cdPratico == null) { // Liberado
 
             txStatus = "LIBERADO";
             txStatusClass = "status-2";
 
-        } else if (dataPrevisaoInicio.equals(LocalDate.now())
-                && cdPratico.equals(1)) { // Prático Confirmado
+        } else if (cdPratico.equals(1)) { // Prático Confirmado
 
             txStatus = "PRÁTICO CONFIRMADO";
             txStatusClass = "status-3";
 
-        } else if (dataPrevisaoInicio.equals(LocalDate.now())
-                && cdPratico.equals(2)) { // Atracação
+        } else if (cdPratico.equals(2)) { // Atracação
 
             txStatus = "ATRACAÇÃO";
             txStatusClass = "status-4";
 
-        } else if (dataPrevisaoInicio.equals(LocalDate.now())
-                && cdPratico.equals(3)) { // Atracado
+        } else if (cdPratico.equals(3)) { // Atracado
 
             txStatus = "ATRACADO";
             txStatusClass = "status-5";
