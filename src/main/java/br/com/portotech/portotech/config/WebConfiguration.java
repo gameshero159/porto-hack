@@ -1,6 +1,7 @@
 package br.com.portotech.portotech.config;
 
 import br.com.portotech.portotech.modules.usuario.services.TbUsuarioService;
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -12,6 +13,11 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class WebConfiguration {
+
+    @Bean
+    public LayoutDialect layoutDialect() {
+        return new LayoutDialect();
+    }
 
     @Bean
     public UserDetailsService userDetailsService(TbUsuarioService tbUsuarioService) {

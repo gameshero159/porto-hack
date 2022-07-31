@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layoutdefault.html}">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layoutdefault/layoutdefault">
 <head>
     <title>Dashboard</title>
 </head>
 <body>
-<section layout:fragment="custom-content">
+<section layout:fragment="pagecontent" >
     <p>This is a custom content that you can provide</p>
 </section>
 </body>
