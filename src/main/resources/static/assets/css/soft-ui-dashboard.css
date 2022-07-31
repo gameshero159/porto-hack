@@ -127,6 +127,31 @@ h6,
   color: var(--bs-heading-color);
 }
 
+.status-1{
+  background-color: #fc9797 !important;
+  color: #bd0000 !important;
+}
+
+.status-2{
+  background-color: #fcbe97 !important;
+  color: #e06300 !important;
+}
+
+.status-3{
+  background-color: #a4fc97 !important;
+  color: #30b60b !important;
+}
+
+.status-4{
+  background-color: #97d9fc !important;
+  color: #0025e0 !important;
+}
+
+.status-5{
+  background-color: #d9d9d9 !important;
+  color: #606060 !important;
+}
+
 h1,
 .h1 {
   font-size: calc(1.425rem + 2.1vw);
