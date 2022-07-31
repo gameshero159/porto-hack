@@ -132,6 +132,10 @@ h1,
   font-size: calc(1.425rem + 2.1vw);
 }
 
+.txt {
+  color: #183D78 !important;
+}
+
 @media (min-width: 1200px) {
 
   h1,
