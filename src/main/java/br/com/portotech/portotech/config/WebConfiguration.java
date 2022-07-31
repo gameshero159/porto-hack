@@ -29,7 +29,7 @@ public class WebConfiguration {
         return httpSecurity.
                 authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/login", "/registro").permitAll()
-                .antMatchers(HttpMethod.POST, "/login", "/registro").permitAll()
+                .antMatchers(HttpMethod.POST, "/registro").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
