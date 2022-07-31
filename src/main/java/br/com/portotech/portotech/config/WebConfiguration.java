@@ -25,16 +25,18 @@ public class WebConfiguration {
 
     @Bean
     @Order(100)
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, TbUsuarioService tbUsuarioService) throws Exception {
         return httpSecurity.
                 authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/login").anonymous()
-                .antMatchers(HttpMethod.POST, "/login").anonymous()
+                .antMatchers(HttpMethod.GET, "/login", "/registro").anonymous()
+                .antMatchers(HttpMethod.POST, "/login", "/registro").anonymous()
                 .anyRequest()
                 .authenticated()
                 .and()
+                .userDetailsService(tbUsuarioService)
                 .formLogin()
                 .loginPage("/login")
+                .successForwardUrl("/login?sucesso=sucesso")
                 .and()
                 .csrf()
                 .disable()
