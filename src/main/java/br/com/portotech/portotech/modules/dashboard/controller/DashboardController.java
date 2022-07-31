@@ -33,6 +33,7 @@ public class DashboardController {
         mv.addObject("lstProgramados", tbProgramadosPortoSantosObj);
         mv.addObject("tbTabuaMareObj", tbTabuaMareObj);
         mv.addObject("tbClima", tbClimaObj);
+        mv.addObject("tbClimaFuturo", tbClimaObj);
 
         return mv;
     }
