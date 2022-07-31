@@ -59,7 +59,10 @@ public class TbProgramadosPortoSantosObj {
     private String txPratico;
 
     @Transient
-    private String status;
+    private String txStatus;
+
+    @Transient
+    private String txStatusClass;
 
     @PostLoad
     public void postLoad(){
@@ -84,16 +87,26 @@ public class TbProgramadosPortoSantosObj {
             txPratico = "Praticagem não comunicada";
         }
 
-        //regras SLA status
-        if(ckAnuencia != null && ckCertificado != null && cdPratico != null) {
-            if (ckAnuencia.equals(1) && ckCertificado.equals(1) && (cdPratico.equals(1) || cdPratico.equals(2))) {
-                status = "background-color: #27d01a; padding-left: 100%";
-            } else if (ckAnuencia.equals(1) || ckCertificado.equals(1) || (cdPratico.equals(1) || cdPratico.equals(2))) {
-                status = "background-color: #ecd61b; padding-left: 100%";
-            }
+        /* CASES STATUS */
+        if((dtPrevInicio.compareTo(new Date()) <= 0) && ((ckAnuencia != null && ckCertificado == null) || (ckAnuencia == null && ckCertificado != null))){
+            txStatus = "NÃO LIBERADO";
+            txStatusClass = "status-1";
         }
-        else if(ckAnuencia == null || ckCertificado == null || cdPratico == null){
-            status = "background-color: red; padding-left: 100%";
+        else if((dtPrevInicio.compareTo(new Date()) <= 0) && (ckAnuencia != null && ckCertificado != null) && cdPratico == null) {
+            txStatus = "LIBERADO";
+            txStatusClass = "status-2";
+        }
+        else if((dtPrevInicio.compareTo(new Date()) <= 0) && cdPratico.equals(1)){
+            txStatus = "PRÁTICO CONFIRMADO";
+            txStatusClass = "status-3";
+        }
+        else if((dtPrevInicio.compareTo(new Date()) <= 0) && cdPratico.equals(2)){
+            txStatus = "ATRACAÇÃO";
+            txStatusClass = "status-4";
+        }
+        else if((dtPrevInicio.compareTo(new Date()) <= 0) && cdPratico.equals(3)){
+            txStatus = "ATRACADO";
+            txStatusClass = "status-5";
         }
 
     }
