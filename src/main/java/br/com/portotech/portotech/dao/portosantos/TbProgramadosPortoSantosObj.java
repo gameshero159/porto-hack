@@ -46,4 +46,10 @@ public class TbProgramadosPortoSantosObj {
     @Column(name = "cd_duv", nullable = true)
     private Integer cdDuv;
 
+    @Column(name = "ck_certificado")
+    private Integer ckCertificado;
+
+    @Column(name = "cd_pratico")
+    private Integer cdPratico;
+
 }
