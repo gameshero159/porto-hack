@@ -18,27 +18,27 @@ public class TbProgramadosPortoSantosObj {
     @Id
     @Column(name = "cd_programados_porto_santos", nullable = false)
     private int cdProgramadosPortoSantos;
-    
+
     @Column(name = "dt_prev_inicio")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private Date dtPrevInicio;
-    
+
     @Column(name = "dt_prev_fim", nullable = true)
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private Date dtPrevFim;
-    
+
     @Column(name = "tx_berco", nullable = true, length = 45)
     private String txBerco;
-    
+
     @Column(name = "tx_navio", nullable = true, length = 45)
     private String txNavio;
-    
+
     @Column(name = "tx_tipo_carga", nullable = true, length = 45)
     private String txTipoCarga;
-    
+
     @Column(name = "tx_evento", nullable = true, length = 45)
     private String txEvento;
-    
+
     @Column(name = "tx_ref_viagem", nullable = true, length = 45)
     private String txRefViagem;
 
@@ -64,10 +64,11 @@ public class TbProgramadosPortoSantosObj {
     private String txStatusClass;
 
     @PostLoad
-    public void postLoad(){
+    public void postLoad() {
 
-        if(cdPratico != null){
-            switch(cdPratico){
+        //region Verificação do prático
+        if (cdPratico != null) {
+            switch (cdPratico) {
                 case 1:
                     txPratico = "Manobra Confirmada";
                     break;
@@ -81,34 +82,48 @@ public class TbProgramadosPortoSantosObj {
                     txPratico = "Praticagem não comunicada";
                     break;
             }
-        }
-        else {
+        } else {
             txPratico = "Praticagem não comunicada";
         }
+        //endregion
 
+        //region Verificação do Status do Navio
         LocalDate dataPrevisaoInicio = LocalDate.from(dtPrevInicio.toInstant());
 
-        /* CASES STATUS */
-        if(dataPrevisaoInicio.equals(LocalDate.now()) && ((ckAnuencia != null && ckCertificado == null) || (ckAnuencia == null && ckCertificado != null))){
+        if (dataPrevisaoInicio.equals(LocalDate.now())
+                && ((ckAnuencia != null && ckCertificado == null)
+                || (ckAnuencia == null && ckCertificado != null))) { // Não Liberado
+
             txStatus = "NÃO LIBERADO";
             txStatusClass = "status-1";
-        }
-        else if(dataPrevisaoInicio.equals(LocalDate.now()) && (ckAnuencia != null && ckCertificado != null) && cdPratico == null) {
+
+        } else if (dataPrevisaoInicio.equals(LocalDate.now())
+                && (ckAnuencia != null && ckCertificado != null)
+                && cdPratico == null) { // Liberado
+
             txStatus = "LIBERADO";
             txStatusClass = "status-2";
-        }
-        else if(dataPrevisaoInicio.equals(LocalDate.now()) && cdPratico.equals(1)){
+
+        } else if (dataPrevisaoInicio.equals(LocalDate.now())
+                && cdPratico.equals(1)) { // Prático Confirmado
+
             txStatus = "PRÁTICO CONFIRMADO";
             txStatusClass = "status-3";
-        }
-        else if(dataPrevisaoInicio.equals(LocalDate.now()) && cdPratico.equals(2)){
+
+        } else if (dataPrevisaoInicio.equals(LocalDate.now())
+                && cdPratico.equals(2)) { // Atracação
+
             txStatus = "ATRACAÇÃO";
             txStatusClass = "status-4";
-        }
-        else if(dataPrevisaoInicio.equals(LocalDate.now()) && cdPratico.equals(3)){
+
+        } else if (dataPrevisaoInicio.equals(LocalDate.now())
+                && cdPratico.equals(3)) { // Atracado
+
             txStatus = "ATRACADO";
             txStatusClass = "status-5";
+
         }
+        //endregion
 
     }
 

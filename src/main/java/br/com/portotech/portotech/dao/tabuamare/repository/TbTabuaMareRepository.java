@@ -10,9 +10,6 @@ import java.util.List;
 
 @Repository
 public interface TbTabuaMareRepository extends JpaRepository<TbTabuaMareObj, Integer> {
-
-    @Query("select x from TbTabuaMareObj x where x.dtPicoMare >= ?1")
+    @Query("select t from TbTabuaMareObj t where t.dtPicoMare >= ?1")
     List<TbTabuaMareObj> findByDtPicoMareMore(Date dtPico);
-
-    List<TbTabuaMareObj> findByDtPicoMareBetween(Date dtInicioPico, Date dtFimPico);
 }

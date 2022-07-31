@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface TbProgramadosPortoSantosRepository extends JpaRepository<TbProgramadosPortoSantosObj, Integer> {
 
-    @Query("select x from TbProgramadosPortoSantosObj x where x.dtPrevInicio >= ?1 order by x.dtPrevInicio desc")
+    @Query("select t from TbProgramadosPortoSantosObj t where t.dtPrevInicio >= ?1 order by t.dtPrevInicio desc")
     List<TbProgramadosPortoSantosObj> findByDtPrevInicioMore(Date dtInicio);
 
 }
