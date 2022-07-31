@@ -36,4 +36,34 @@ public class VwTbProgramadosPortoSantosObj {
 
     @Column(name = "cd_pratico")
     private Integer cdPratico;
+
+    @Transient
+    private String txPratico;
+
+    @PostLoad
+    public void postLoad(){
+
+
+
+
+            if(cdPratico != null){
+                switch(cdPratico){
+                    case 1:
+                        txPratico = "Manobra Confirmada";
+                        break;
+                    case 2:
+                        txPratico = "Manobra em Andamento";
+                        break;
+                    case 3:
+                        txPratico = "Manobra Encerrada";
+                        break;
+                    default:
+                        txPratico = "Praticagem não comunicada";
+                        break;
+                }
+            }
+            else {
+                txPratico = "Praticagem não comunicada";
+            }
+    }
 }
