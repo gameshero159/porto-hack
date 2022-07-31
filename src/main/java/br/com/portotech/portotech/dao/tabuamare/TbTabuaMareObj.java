@@ -1,5 +1,6 @@
 package br.com.portotech.portotech.dao.tabuamare;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,6 +19,7 @@ public class TbTabuaMareObj {
     private Integer cdTabuaMare;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
     @Column(name = "dt_pico_mare")
     private Date dtPicoMare;

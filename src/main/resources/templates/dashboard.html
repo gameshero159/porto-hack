@@ -65,14 +65,29 @@
 
                     const ctx = document.getElementById('line-chart').getContext('2d');
 
-                    var graphic = /*[[${tbTabuaMareObj}]]*/null;
+                    /**
+                     *
+                     * @type {[{dtPicoMare: string, vlPico: number}]}
+                     */
+                    let graphic = /*[[${tbTabuaMareObj}]]*/null;
+
+                    let labels = [];
+
+                    let dados = [];
+
+                    graphic.forEach(value => {
+                        labels.push(value.dtPicoMare);
+                        dados.push(value.vlPico);
+                    });
 
                     const myChart = new Chart(ctx, {
                         type: 'line',
+
                         data: {
-                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                            labels: labels,
                             datasets: [{
-                                data: [12, 19, 3, 5, 2, 3],
+                                label: "Variação da Maré",
+                                data: dados,
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
