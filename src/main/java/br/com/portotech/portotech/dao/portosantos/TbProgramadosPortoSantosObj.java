@@ -52,4 +52,50 @@ public class TbProgramadosPortoSantosObj {
     @Column(name = "cd_pratico")
     private Integer cdPratico;
 
+    @Column(name = "ck_anuencia")
+    private Integer ckAnuencia;
+
+    @Transient
+    private String txPratico;
+
+    @Transient
+    private String status;
+
+    @PostLoad
+    public void postLoad(){
+
+        if(cdPratico != null){
+            switch(cdPratico){
+                case 1:
+                    txPratico = "Manobra Confirmada";
+                    break;
+                case 2:
+                    txPratico = "Manobra em Andamento";
+                    break;
+                case 3:
+                    txPratico = "Manobra Encerrada";
+                    break;
+                default:
+                    txPratico = "Praticagem não comunicada";
+                    break;
+            }
+        }
+        else {
+            txPratico = "Praticagem não comunicada";
+        }
+
+        //regras SLA status
+        if(ckAnuencia != null && ckCertificado != null && cdPratico != null) {
+            if (ckAnuencia.equals(1) && ckCertificado.equals(1) && (cdPratico.equals(1) || cdPratico.equals(2))) {
+                status = "background-color: #27d01a; padding-left: 100%";
+            } else if (ckAnuencia.equals(1) || ckCertificado.equals(1) || (cdPratico.equals(1) || cdPratico.equals(2))) {
+                status = "background-color: #ecd61b; padding-left: 100%";
+            }
+        }
+        else if(ckAnuencia == null || ckCertificado == null || cdPratico == null){
+            status = "background-color: red; padding-left: 100%";
+        }
+
+    }
+
 }

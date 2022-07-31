@@ -1,18 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <link th:href="@{/assets/css/nucleo-svg.css}" rel="stylesheet" />
+    <link th:href="@{/assets/css/nucleo-icons.css}" rel="stylesheet" />
+    <link th:href="@{/assets/css/nucleo-svg.css}" rel="stylesheet" />
+    <link id="pagestyle" th:href="@{/assets/css/soft-ui-dashboard.css?v=1.0.6}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <script th:src="@{/assets/js/plugins/chartjs.min.js}"></script>
+    <!--
+    Template free
+    Creditos: https://creative-tim.com
+    -->
+
 </head>
 <body>
-<form method="post" action="/login">
-    <label for="username">Email</label>
-    <input name="username" id="username">
-
-    <label for="password">Pasword</label>
-    <input name="password" id="password">
-
-    <button type="submit">Login</button>
-</form>
+<main class="main-content  mt-0">
+    <section>
+        <div class="page-header min-vh-75">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                        <div class="card card-plain mt-8">
+                            <div class="card-header pb-0 text-left bg-transparent">
+                                <h3 class="font-weight-bolder text-info text-gradient">Portech</h3>
+                                <p class="mb-0">Entre com sua conta para acessar a plataforma</p>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" action="/login">
+                                    <label>Email</label>
+                                    <div class="mb-3">
+                                        <input type="email" name="username" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                                    </div>
+                                    <label>Password</label>
+                                    <div class="mb-3">
+                                        <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Entrar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                            <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('https://veja.abril.com.br/wp-content/uploads/2018/03/economia-container-porto-santos-20100308-006.jpg')"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

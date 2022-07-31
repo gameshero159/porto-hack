@@ -5,21 +5,9 @@
       layout:decorate="~{layoutdefault/layoutdefault}">
 
 <main layout:fragment="pagecontent">
-    <section class="p-3">
+    <section>
 
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <!--<div class="card-header" style="background-color: #224D91!important"></div>-->
-                    <div class="card-body">
-                        <div class="chart">
-                            <canvas id="line-chart" class="chart-canvas" height="300px"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-100"></div>
+        <div class="row p-4">
         <div class="card p-3">
             <div class="table-responsive">
                 <table id="myTable" class="table align-items-center mb-0" width="100%">
@@ -62,16 +50,32 @@
                 </table>
             </div>
         </div>
+        </div>
 
-        <script>
-            var win = navigator.platform.indexOf('Win') > -1;
-            if (win && document.querySelector('#sidenav-scrollbar')) {
-                var options = {
-                    damping: '0.5'
-                }
-                Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-            }
-        </script>
+        <div class="row p-3">
+            <div class="col-sm-6">
+                <div class="card">
+                    <!--<div class="card-header" style="background-color: #224D91!important"></div>-->
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="line-chart" class="chart-canvas" height="300px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+                    <!--<div class="card-header" style="background-color: #224D91!important"></div>-->
+                    <div class="card-body">
+                        <span th:text="|Condição Climática: ${tbClima.txCondicao}|"></span>
+                        <span th:text="|Direção do Vento: ${tbClima.txDirecaoVento}|"></span>
+                        <span th:text="|Velocidade do Vento: ${tbClima.vlVelocidadeVento}|"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
         <script th:inline="javascript">
             /*<[[CDATA*/
