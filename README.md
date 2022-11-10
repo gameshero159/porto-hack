@@ -11,6 +11,9 @@
 - Cauê Moura
 - Rubens Neto
 
-> Metologias & 
+> Metologias
 - Scrum
 - Trunk-Based Development
+
+> Apresentação
+- https://www.youtube.com/watch?t=32405&v=KQIEMlVzkwk&feature=youtu.be
